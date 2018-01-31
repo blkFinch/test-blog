@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Articles</title>
+</head>
+<body>
+  <div>
+    <p>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+
+    <p>
+      <strong>Text:</strong>
+      <%= @article.text %>
+    </p>
+
+  <aside id="comments">
+    <%= render @article.comments %>
+  </aside>
+
+    <h3>Add a comment: </h3>
+    <%= render 'comments/form' %>
+    
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
+</div>
+</body>
+</html>
