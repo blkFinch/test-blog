@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit User</title>
+</head>
+<body>
+  <h2>Edit User</h2>
+  <strong>User Name: </strong><%= @user.screen_name %>
+  <strong>Password: </strong><%= @user.password %>
+  <strong>Permissions: </strong><%= @user.permission %>
+  <br>
+
+  <%= form_with(model: @user) do |form| %>
+  <p>
+    <%= form.label :screen_name %>
+    <%= form.text_field :screen_name %>
+  </p>
+
+  <p>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </p>
+
+  <p>
+    <%= form.label :permission %>
+    <%= form.number_field :permission %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
+
+  <%= link_to 'Back', @user %>
+  <%= link_to 'Delete', user_path(@user),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+
+</body>
+</html>
